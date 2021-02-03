@@ -1,4 +1,20 @@
-applicationEnvironmentVariables:
-    - TZ: 'America/Toronto'
-    - ACME_EMAIL: 'foo@bar.com'
-    - CERTRESOLVER: 'staging'
+name: "balena-traefik"
+description: "traefik proxy and service configuration; automatically recognizes additional containers and provisions a SSL secured subdomain."
+type: "sw.application"
+
+assets:
+  repository:
+    type: "blob.asset"
+    data:
+      url: "https://github.com/sruf/balena-traefik"
+
+data:
+  applicationEnvironmentVariables:
+    - ACME_EMAIL: "email@example.tld"
+    - DNS_PROVIDER: "inwx"
+    - MAIN_URL: "url"
+    - INWX_USERNAME: ""
+    - INWX_PASSWORD: ""
+    - LOG_LEVEL: "INFO" # DEBUG
+
+  defaultDeviceType: "raspberrypi3-64"

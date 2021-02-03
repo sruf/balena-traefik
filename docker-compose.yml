@@ -1,28 +1,24 @@
-version: "2.1"
+version: 2.1
 
 volumes:
   certs:
 
 services:
-  # https://hub.docker.com/_/traefik/
-  traefik:
-    build: .
-    environment: 
-      CERTRESOLVER: "staging"
-      IP_ALLOWLIST: "'10.0.0.0/8','172.16.0.0/12','192.168.0.0/16'"
-      WHOAMI_HOST: "whoami.localhost"
+  proxy:
+    build: ./traefik
     ports:
-      - "80:80/tcp"
-      - "443:443/tcp"
-      - "8080:8080/tcp"
+      - 80:80
+      - 443:443
+      - 8080:8080
     volumes:
-      - "certs:/var/certs"
+      - certs:/var/certs
     labels:
       io.balena.features.balena-socket: true
 
   whoami:
-    image: "containous/whoami"
+    image: traefik/whoami
     labels:
-      traefik.enable: "true"
-      traefik.http.routers.whoami.entrypoints: "websecure"
-      traefik.http.routers.whoami.tls.certresolver: "staging"
+#      traefik.http.routers.whoami.rule: Host("url")
+#      traefik.http.routers.whoami.tls.certResolver: "letsencrypt"
+      traefik.enable: true
+      subdomain: whoami
