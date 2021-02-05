@@ -16,18 +16,20 @@ services:
     labels:
       io.balena.features.balena-socket: true
 
-  whoami:
-    image: traefik/whoami
-    labels:
+# Uncomment to add a whoami container (good for testing if the configuration is working)
+#  whoami:
+#    image: traefik/whoami
+#    labels:
 #      traefik.http.routers.whoami.rule: Host("url")
 #      traefik.http.routers.whoami.tls.certResolver: "letsencrypt"
-      traefik.enable: true
-      subdomain: whoami
+#      traefik.enable: true
+#      subdomain: whoami
 
-  nodered:
-    image: nodered/node-red:latest-12
-    volumes: 
-      - nodered:/data
-    labels:
-      traefik.enable: true
-      subdomain: nodered
+# Uncomment to add a Node-RED container
+#  nodered:
+#    image: nodered/node-red:latest-12
+#    volumes: 
+#      - nodered:/data
+#    labels:
+#      traefik.enable: true
+#      subdomain: nodered
