@@ -1,0 +1,3 @@
+[http.middlewares.test-auth.basicauth]
+users = $USERS
+realm = "Homeserver"

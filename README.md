@@ -28,12 +28,13 @@ Application envionment variables apply to all services within the application, a
 
 |Name|Example|Purpose|
 |---|---|---|
-|`ACME_EMAIL`   |`foo@bar.com`|email address to use for LetsEncrypt ACME registration|
-|`DNS_PROVIDER` |`inwx`       |DNS provider; refer to https://doc.traefik.io/traefik/v2.4/https/acme/#providers|
-|`MAIN_URL`     |`url.tld`    |tld domain
-|`INWX_USERNAME`|`username`   |username for the DNS provider (if you do not use INWX, you will need to adapt the name of the environment variable)
-|`INWX_PASSWORD`|`password`   |password for the DNS provider
-|`LOG_LEVEL`    |`INFO`       |can be `INFO` or `DEBUG`
+|`ACME_EMAIL`   |`foo@bar.com`      |email address to use for LetsEncrypt ACME registration|
+|`DNS_PROVIDER` |`inwx`             |DNS provider; refer to https://doc.traefik.io/traefik/v2.4/https/acme/#providers|
+|`MAIN_URL`     |`url.tld`          |tld domain
+|`INWX_USERNAME`|`username`         |username for the DNS provider (if you do not use INWX, you will need to adapt the name of the environment variable)
+|`INWX_PASSWORD`|`password`         |password for the DNS provider
+|`LOG_LEVEL`    |`INFO`             |can be `INFO` or `DEBUG`
+|`USERS`        |`[\"user:pass\"]`  |array of htpasswd created user:pass combinations; quotation marks must be escaped
 
 
 ## Usage

@@ -2,6 +2,7 @@ version: 2.1
 
 volumes:
   certs:
+  nodered:
 
 services:
   proxy:
@@ -22,3 +23,11 @@ services:
 #      traefik.http.routers.whoami.tls.certResolver: "letsencrypt"
       traefik.enable: true
       subdomain: whoami
+
+  nodered:
+    image: nodered/node-red:latest-12
+    volumes: 
+      - nodered:/data
+    labels:
+      traefik.enable: true
+      subdomain: nodered

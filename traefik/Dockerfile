@@ -1,9 +1,10 @@
 FROM traefik:v2.4
 
 COPY traefik.toml /var/traefik/traefik.toml
+COPY conf.d /var/traefik/conf.d
+
 COPY entrypoint.sh /entrypoint.sh
 
-RUN mkdir -p /etc/traefik
 WORKDIR /etc/traefik
 
 VOLUME /var/certs
